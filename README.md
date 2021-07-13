@@ -28,6 +28,10 @@ Plot spectral data of multiple points in the image to unveil spectral similariti
 Further more, You can a PCA analysis on the HSI data and return PCA images which can further reveal clear sources of variance in the HSI data (see screenshot below).
 ![Screenshot 2021-07-14 001312](https://user-images.githubusercontent.com/49397327/125480542-e4a84c2a-2950-4b56-958a-54579be0b292.png)
 
+
 Finally, you can save spectral data of specied points in the HSI data in .txt format to folder of your choice.
 
+
 Hopefully this is helpful to any one seeking to have a quick understanding of his HSI data.
+
+Enjoy...
