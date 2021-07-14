@@ -16,6 +16,7 @@ This is a Simple GUI (MATLAB guide) app to load, preview, perform PCA and save s
 
 The app is able to load any ENVI-format (i.e in ".bil", ".dat", ".file", or "img" format) Hyperspectral Imaging (HSI) data from any directory. 
 The loading of the ENVI format HSI data was inherited from **Link-dev's** _ENVI_readAndWrite_ (https://github.com/Link-dev/ENVI_readAndWrite) repository.
+Check out sample header file "G1.hdr" for comparison with your data.
 
 You can specify a waveband of the HSI data to be displayed in main plot window. 
 You can select any portion of the image to preview the spectral data behind each of the selected pixels. 
