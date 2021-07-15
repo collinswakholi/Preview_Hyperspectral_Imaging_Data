@@ -52,7 +52,7 @@ function Display_Data_GUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to Display_Data_GUI (see VARARGIN)
 global pre_band ncomps prev_option sel_option sav_option data_corr preview_comp
-global m_pca color_mat color_mat_tr get_wave removeBK
+global m_pca color_mat color_mat_tr get_wave removeBK wavelength
 
 pre_band = 950;
 ncomps = 30;
@@ -64,6 +64,7 @@ preview_comp = 1;
 m_pca = 0;
 get_wave = 2;
 removeBK = 0;
+wavelength = 0;
 
 color_mat = [1, 0, 0;...
     0, 1, 0;...
@@ -125,7 +126,7 @@ if ~(ff==0)
     All_Names = {all_files.name};
     
     idx_all = contains(All_Names,Name);
-    idx_hdr = contains(All_Names,'.hdr');
+    idx_hdr = contains(All_Names,'.hdr','IgnoreCase',true);
     Idx_hdr = and(idx_all,idx_hdr);
     
     hdr_ff = All_Names{1,Idx_hdr};
@@ -144,7 +145,11 @@ if ~(ff==0)
                 'Wavelength not matching # bands', ...
                 'Yes','No','No');
         if strcmp(answer, 'Yes')
-            wavelength = [wavelength(1):((wavelength(end)-wavelength(1))/bands): wavelength(end)];
+          try
+              wavelength = [wavelength(1):((wavelength(end)-wavelength(1))/bands): wavelength(end)];
+          catch
+              wavelength = [1:bands];
+          end
         else
             
         end
@@ -347,7 +352,7 @@ if data_corr == 1
         All_Names = {all_files.name};
 
         idx_all = contains(All_Names,Name);
-        idx_hdr = contains(All_Names,'.hdr');
+        idx_hdr = contains(All_Names,'.hdr','IgnoreCase',true);
         Idx_hdr = and(idx_all,idx_hdr);
 
         hdr_ff = All_Names{1,Idx_hdr};
@@ -383,7 +388,7 @@ if data_corr == 1
         All_Names = {all_files.name};
 
         idx_all = contains(All_Names,Name);
-        idx_hdr = contains(All_Names,'.hdr');
+        idx_hdr = contains(All_Names,'.hdr','IgnoreCase',true);
         Idx_hdr = and(idx_all,idx_hdr);
 
         hdr_ff = All_Names{1,Idx_hdr};
